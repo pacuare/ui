@@ -3,7 +3,7 @@ import type { Args } from '$lib/types';
 export type Client = { baseUrl: string };
 
 export function call<T>({ baseUrl }: Client, ...[path, opts]: Args<typeof fetch>): Promise<T> {
-	return fetch(baseUrl + path, opts).then((res) => {
+	return fetch(baseUrl + path, { ...opts, credentials: 'include' }).then((res) => {
 		if(!res.ok) throw res;
 		return res.json()
 	});
