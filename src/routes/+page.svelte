@@ -4,13 +4,11 @@
 	import { client } from "$lib/api/client";
 	import { button } from "$lib/components/button";
 	import { onMount } from "svelte";
+	import AuthenticatedHome from "./AuthenticatedHome.svelte";
+	import Loading from "./Loading.svelte";
+	import { fade } from "svelte/transition";
 
     let access = $state<AccessInfo>()
-    
-    async function logoutClick() {
-        await logOut(client)
-        goto('/login')
-    }
 
     onMount(async () => {
         try {
@@ -22,7 +20,11 @@
 </script>
 
 {#if access != undefined}
-Hello, {access?.email}
-
-<button {...button('outline')()} onclick={logoutClick}>Log Out</button>
+<main class="flex w-screen h-screen items-stretch justify-stretch" transition:fade>
+    <AuthenticatedHome {access} />
+</main>
+{:else}
+<div transition:fade>
+    <Loading/>
+</div>
 {/if}

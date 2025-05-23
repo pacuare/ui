@@ -60,13 +60,15 @@
 		</form>
 
 		{#if otpVisible}
-			<p {...card.description('pb-1 pt-3')} transition:fly>{m.enter_otp()}</p>
-			<div {...otpInput.root} class="flex flex-row items-stretch gap-3" transition:fly>
-				{#each otpInput.inputs as input}
-					<input {...input} {...formInput('flex-1 min-w-2 text-center uppercase')}>
-				{/each}
-			</div>
-			<button {...button('primary')()} onclick={logIn}>{m.log_in()}</button>
+			<form onsubmit={logIn} class="flex flex-col gap-2" transition:fly>
+				<p {...card.description('pb-1 pt-3')}>{m.enter_otp()}</p>
+				<div {...otpInput.root} class="flex flex-row items-stretch gap-3">
+					{#each otpInput.inputs as input}
+						<input {...input} {...formInput('flex-1 min-w-2 text-center uppercase')}>
+					{/each}
+				</div>
+				<button {...button('primary')()} type="submit">{m.log_in()}</button>
+			</form>
 		{/if}
 	</div>
 </div>
