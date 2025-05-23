@@ -1,0 +1,19 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"hello_world": "Hola, {name} de es!",
+	"account_settings": "Configuración de cuenta",
+	"refresh_db": "Actualizar su base de datos",
+	"recreate_db": "Recrear su base de datos",
+	"log_in": "Iniciar en Pacuare",
+	"email": "Correo electrónico",
+	"password": "Contraseña",
+	"restricted_access": "Acceso ceñido &mdash; {email}",
+	"full_access": "Acceso completo &mdash; {email}",
+	"rows_in_result": "{count} cuadros en resultado",
+	"docs": "Documentación",
+	"personal_db": "Base de datos personal",
+	"personal_db_sync": "Mantener sus datos sincronizados a la réplica principal.",
+	"api_keys": "Llaves de API",
+	"access_your_data": "Acceder a sus datos de sus propias aplicaciones.",
+	"description": "Descripción"
+}

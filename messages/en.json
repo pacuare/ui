@@ -1,0 +1,20 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"hello_world": "Hola, {name} de es!",
+	"account_settings": "Account Settings",
+	"refresh_db": "Refresh Database",
+	"recreate_db": "Recreate Database",
+	"log_in": "Log In",
+	"email": "Email",
+	"password": "Password",
+	"restricted_access": "Restricted access &mdash; {email}",
+	"full_access": "Full access &mdash; {email}",
+	"rows_in_result": "{count} rows in result",
+	"docs": "Documentation",
+	"personal_db": "Personal Database",
+	"personal_db_sync": "Keep your data in sync with the master copy.",
+	"api_keys": "API Keys",
+	"access_your_data": "Access your data from your own apps.",
+	"description": "Description",
+	"enter_otp": "Please enter the six-digit code sent to your email."
+}
