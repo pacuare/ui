@@ -4,16 +4,15 @@ export const banner = (variant: 'success' | 'danger' | 'neutral') => {
     let color = 'slate'
     switch(variant) {
         case 'success':
-            color = 'green'
+            color = 'border-green-500 text-green-800 bg-green-100'
             break
         case 'danger':
-            color = 'red'
+            color = 'border-red-500 text-red-800 bg-red-100'
             break
     }
     return c(`
-        border border-${color}-500
-        text-${color}-800
-        bg-${color}-100
+        border
+        ${color}
         rounded-md
         px-3 py-2
     `)

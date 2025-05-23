@@ -20,7 +20,7 @@
 </script>
 
 {#if access != undefined}
-<main class="flex w-screen h-screen items-stretch justify-stretch" transition:fade>
+<main class="flex flex-1 w-screen h-screen items-stretch justify-stretch" transition:fade>
     <AuthenticatedHome {access} />
 </main>
 {:else}
