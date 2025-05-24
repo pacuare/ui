@@ -1,3 +1,4 @@
+import { number } from '$lib/paraglide/registry';
 import { type Client, call } from './client';
 
 export type AccessInfo = {
@@ -24,3 +25,9 @@ export const logOut = (client: Client) => call(client, '/auth/logout', {method: 
 
 export const getKey = (client: Client, description: string) =>
 	call<string>(client, `/auth/key?description=${encodeURIComponent(description)}`);
+
+export const deleteKey = (client: Client, id: number) =>
+	call<number>(client, `/auth/key?id=${encodeURIComponent(id)}`, {method: 'DELETE'})
+
+export const getKeys = (client: Client) =>
+	call<[number, string, string][]>(client, '/auth/keys');
