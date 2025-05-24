@@ -45,8 +45,8 @@
 </script>
 
 {#if open}
-<div {...backdrop()} onclick={() => {open = false; createdKey = undefined}} transition:fade>
-    <dialog {open} {...card.root('w-md m-auto shadow flex flex-col gap-2')} onclick={e => e.stopPropagation()}>
+<div {...backdrop('z-50')} onclick={() => {open = false; createdKey = undefined}} transition:fade>
+    <dialog {open} {...card.root('w-md m-auto shadow flex flex-col gap-2 z-55')} onclick={e => e.stopPropagation()}>
         <h2 {...card.title('text-center')}>{m.account_settings()}</h2>
 
         <div {...card.root()}>

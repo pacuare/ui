@@ -4,6 +4,7 @@
 	import AccessBanner from "./AccessBanner.svelte";
 	import AccountSettings from "./AccountSettings.svelte";
 	import { button } from "$lib/components/button";
+	import GradioLite from "./GradioLite.svelte";
 
     let settingsOpen = $state(false)
     let {access}: {access: AccessInfo} = $props()
@@ -13,6 +14,10 @@
     <div class="flex flex-row gap-3 justify-stretch">
         <AccessBanner {access}/>
         <button {...button('outline')()} onclick={() => settingsOpen = !settingsOpen}><Settings class="size-4"/></button>
+    </div>
+
+    <div class="flex flex-1 w-full items-stretch justify-stretch">
+        <GradioLite/>
     </div>
 </div>
 
