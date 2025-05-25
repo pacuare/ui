@@ -1,0 +1,1 @@
+This is an archive of the old Go version, for historical purposes only. Dysfunctionality and a sporadic temper are the only things that can be guaranteed about this codebase. You have been warned. If you want a vaguely working server, go back to commit 9193a7f82e25602fb1854d96ed1a2834ba8c228a.
