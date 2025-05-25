@@ -20,7 +20,7 @@
 	}
 </script>
 
-<section onmousedown={onMouseDown} class="user-select-none cursor-move p-2 flex flex-row justify-center items-center">
+<section role="alertdialog" onmousedown={onMouseDown} class="user-select-none cursor-move p-2 flex flex-row justify-center items-center">
     <div class="max-w-[100px] h-[6px] flex-1 bg-gray-500 rounded-full"></div>
 </section>
 

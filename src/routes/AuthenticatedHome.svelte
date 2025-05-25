@@ -16,8 +16,8 @@
 <div class="flex flex-1 w-screen flex-col gap-3 items-stretch p-3">
     <div class="flex flex-row gap-3 justify-stretch">
         <AccessBanner {access}/>
-        <button {...button('outline')(queryOpen ? 'bg-slate-800 text-white' : '')} onclick={() => queryOpen = !queryOpen}><Search class="size-4"/></button>
-        <button {...button('outline')()} onclick={() => settingsOpen = !settingsOpen}><Settings class="size-4"/></button>
+        <button {...button(queryOpen ? 'primary' : 'outline')()} onclick={() => queryOpen = !queryOpen}><Search class="size-4"/></button>
+        <button {...button(settingsOpen ? 'primary' : 'outline')()} onclick={() => settingsOpen = !settingsOpen}><Settings class="size-4"/></button>
     </div>
 
     <div class="flex flex-1 w-full items-stretch justify-stretch">
@@ -25,7 +25,9 @@
     </div>
 </div>
 
-<AccountSettings bind:open={settingsOpen}/>
+{#if settingsOpen}
+<AccountSettings/>
+{/if}
 
 {#if queryOpen}
     <QueryDialog bind:query={query}/>

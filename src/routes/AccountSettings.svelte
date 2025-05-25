@@ -7,12 +7,10 @@
 	import { deleteKey, getKey, getKeys, logOut } from "$lib/api/auth";
 	import { client } from "$lib/api/client";
 	import { goto } from "$app/navigation";
-	import { fade } from "svelte/transition";
 	import { onMount } from "svelte";
 	import { input } from "$lib/components/input";
 	import { banner } from "$lib/components/banner";
-
-	let { open = $bindable() }: { open: boolean } = $props()
+	import Dialog from "./Dialog.svelte";
 
     let keys: [number, string, string][] = $state([])
 
@@ -44,10 +42,9 @@
     })
 </script>
 
-{#if open}
-<div {...backdrop('z-50')} onclick={() => {open = false; createdKey = undefined}} transition:fade>
-    <dialog {open} {...card.root('w-md m-auto shadow flex flex-col gap-2 z-55')} onclick={e => e.stopPropagation()}>
-        <h2 {...card.title('text-center')}>{m.account_settings()}</h2>
+<Dialog height={400} width={600}>
+    <div class="flex flex-col flex-1 px-3 gap-3 overflow-auto">
+        <h2 {...card.title('text-center sticky top-0 pt-3 bg-white/50 backdrop-blur-md')}>{m.account_settings()}</h2>
 
         <div {...card.root()}>
             <h3 {...card.title('text-md')}>{m.api_keys()}</h3>
@@ -82,6 +79,5 @@
         </div>
 
         <button {...button('outline')('self-end')} onclick={logoutClick}><LogOut class="size-4"/></button>
-    </dialog>
-</div>
-{/if}
+    </div>
+</Dialog>
