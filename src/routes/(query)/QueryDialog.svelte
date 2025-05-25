@@ -20,7 +20,7 @@
 <Dialog>
     <div class="flex-1 grid grid-rows-2 @sm:grid-rows-1 grid-cols-1 @sm:grid-cols-2 items-stretch justify-stretch p-3 gap-3 h-full max-h-[calc(100%-(var(--spacing)*6))]">
         <textarea {...input('resize-none flex-1 font-mono')} bind:value={query} onkeyup={keyUp}></textarea>
-        <div {...card.root('rounded border overflow-scroll p-0')}>
+        <div {...card.root('border overflow-scroll p-0')}>
             <ResultsTable bind:this={results}/>
         </div>
     </div>
