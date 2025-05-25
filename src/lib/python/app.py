@@ -4,7 +4,7 @@ from pacuare import Client
 db = Client()
 
 async def process(id):
-    sql = "select injuries, turtle_occurrences from unique_turtles where turtle_id = $1"
+    sql = "select injuries, turtle_occurrences from unique_turtles where turtle_id = %s"
     params = [id]
     if id == '':
         sql = "select injuries, turtle_occurrences from unique_turtles"
