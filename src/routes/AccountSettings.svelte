@@ -10,9 +10,13 @@
 	import { onMount } from "svelte";
 	import { input } from "$lib/components/input";
 	import { banner } from "$lib/components/banner";
+    import * as db from '$lib/api/db'
 	import Dialog from "./Dialog.svelte";
+	import { spinner } from "$lib/components/spinner";
+	import { fade } from "svelte/transition";
 
     let keys: [number, string, string][] = $state([])
+    let loading = $state(false)
 
     async function logoutClick() {
         await logOut(client)
@@ -37,6 +41,20 @@
         refreshKeys()
     }
 
+    async function refresh() {
+        if(!confirm("Are you sure you want to refresh your data? This will clear any modifications you have made.")) return
+        loading = true
+        await db.refresh(client);
+        loading = false
+    }
+
+    async function recreate() {
+        if(!confirm("Are you sure you want to recreate your database? This action cannot be undone. This will delete and recreate your database, removing any modifications, functions, procedures, views, or other structures you have created.")) return
+        loading = true
+        await db.recreate(client);
+        window.location.reload();
+    }
+
     onMount(() => {
         refreshKeys()
     })
@@ -45,6 +63,15 @@
 <Dialog height={400} width={600}>
     <div class="flex flex-col flex-1 px-3 gap-3 overflow-auto">
         <h2 {...card.title('text-center sticky top-0 pt-3 bg-white/50 backdrop-blur-md')}>{m.account_settings()}</h2>
+
+        <div {...card.root()}>
+            <h3 {...card.title('text-md')}>{m.personal_db()}</h3>
+            <p {...card.description('mb-4')}>{m.personal_db_sync()}</p>
+            <div class="flex flex-row gap-2">
+                <button {...button('primary')()} onclick={refresh}>{m.refresh_db()}</button>
+                <button {...button('outline')()} onclick={recreate}>{m.recreate_db()}</button>
+            </div>
+        </div>
 
         <div {...card.root()}>
             <h3 {...card.title('text-md')}>{m.api_keys()}</h3>
@@ -81,3 +108,9 @@
         <button {...button('outline')('self-end')} onclick={logoutClick}><LogOut class="size-4"/></button>
     </div>
 </Dialog>
+
+{#if loading}
+<div {...backdrop()} transition:fade>
+    <div {...spinner()}></div>
+</div>
+{/if}

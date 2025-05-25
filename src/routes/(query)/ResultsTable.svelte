@@ -11,7 +11,7 @@
 	let results = $state<QueryResponse>();
 
 	export async function runQuery(q: string) {
-		results = null;
+		results = undefined;
 		loading = true;
 		results = await query(client, q, []);
 		loading = false;
