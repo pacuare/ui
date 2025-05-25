@@ -16,5 +16,6 @@
 	"api_keys": "API Keys",
 	"access_your_data": "Access your data from your own apps.",
 	"description": "Description",
-	"enter_otp": "Please enter the six-digit code sent to your email."
+	"enter_otp": "Please enter the six-digit code sent to your email.",
+	"log_in_long": "Log In to Pacuare"
 }

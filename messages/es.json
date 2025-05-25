@@ -4,7 +4,7 @@
 	"account_settings": "Configuración de cuenta",
 	"refresh_db": "Actualizar su base de datos",
 	"recreate_db": "Recrear su base de datos",
-	"log_in": "Iniciar en Pacuare",
+	"log_in": "Iniciar ",
 	"email": "Correo electrónico",
 	"password": "Contraseña",
 	"restricted_access": "Acceso ceñido — {email}",
@@ -15,5 +15,7 @@
 	"personal_db_sync": "Mantener sus datos sincronizados a la réplica principal.",
 	"api_keys": "Llaves de API",
 	"access_your_data": "Acceder a sus datos de sus propias aplicaciones.",
-	"description": "Descripción"
+	"description": "Descripción",
+	"enter_otp": "Por favor ingrese el código de seis dígitos enviado a su correo electrónico.",
+	"log_in_long": "Iniciar en Pacuare"
 }
