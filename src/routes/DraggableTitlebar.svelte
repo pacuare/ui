@@ -20,8 +20,8 @@
 	}
 </script>
 
-<section role="alertdialog" onmousedown={onMouseDown} class="user-select-none cursor-move p-2 flex flex-row justify-center items-center">
-    <div class="max-w-[100px] h-[6px] flex-1 bg-gray-500 rounded-full"></div>
+<section role="alertdialog" onmousedown={onMouseDown} class="user-select-none cursor-move p-2 flex flex-row justify-center items-center group">
+    <div class="max-w-[100px] h-[6px] flex-1 bg-gray-500 rounded-full group-hover:max-w-[150px] group-active:max-w-[125px] group-active:bg-gray-700 transition-all"></div>
 </section>
 
 <svelte:window onmouseup={onMouseUp} onmousemove={onMouseMove} />

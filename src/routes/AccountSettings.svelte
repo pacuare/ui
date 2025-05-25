@@ -62,7 +62,7 @@
 
 <Dialog height={400} width={600}>
     <div class="flex flex-col flex-1 px-3 gap-3 overflow-auto">
-        <h2 {...card.title('text-center sticky top-0 pt-3 bg-white/50 backdrop-blur-md')}>{m.account_settings()}</h2>
+        <h2 {...card.title('text-center sticky top-0 pt-3 bg-white/50 [backdrop-filter:blur(3px)]')}>{m.account_settings()}</h2>
 
         <div {...card.root()}>
             <h3 {...card.title('text-md')}>{m.personal_db()}</h3>
