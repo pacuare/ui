@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { input } from '$lib/components/input';
-    import * as card from '$lib/components/card'
+	import { input, card } from '@pacuare/design';
 	import ResultsTable from './ResultsTable.svelte';
 	import { onMount } from 'svelte';
 	import Dialog from '../Dialog.svelte';
@@ -19,7 +18,7 @@
 
 <Dialog>
     <div class="flex-1 grid grid-rows-2 @sm:grid-rows-1 grid-cols-1 @sm:grid-cols-2 items-stretch justify-stretch p-3 gap-3 h-full max-h-[calc(100%-(var(--spacing)*6))]">
-        <textarea {...input('resize-none flex-1 font-mono')} bind:value={query} onkeyup={keyUp}></textarea>
+        <textarea {...input.input('resize-none flex-1 font-mono')} bind:value={query} onkeyup={keyUp}></textarea>
         <div {...card.root('border overflow-scroll p-0')}>
             <ResultsTable bind:this={results}/>
         </div>

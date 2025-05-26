@@ -2,13 +2,12 @@
 	import { goto } from "$app/navigation";
 	import { type AccessInfo, getAccess, logOut } from "$lib/api/auth";
 	import { client } from "$lib/api/client";
-	import { button } from "$lib/components/button";
 	import { onMount } from "svelte";
 	import AuthenticatedHome from "./AuthenticatedHome.svelte";
 	import Loading from "./Loading.svelte";
 	import { fade } from "svelte/transition";
 	import * as db from "$lib/api/db";
-	import { spinner } from "$lib/components/spinner";
+	import { spinner } from "@pacuare/design";
 	import { LoaderCircle } from "@lucide/svelte";
 
     let access = $state<AccessInfo>()
@@ -31,7 +30,7 @@
 
 {#if creatingDB}
     <main class="flex flex-col gap-3 p-3 flex-1 w-screen h-screen items-center justify-center">
-        <div {...spinner()}>
+        <div {...spinner.spinner()}>
             <LoaderCircle/>
         </div>
         <h2 class="font-bold">Welcome to Pacuare Reserve!</h2>

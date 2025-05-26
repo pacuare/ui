@@ -2,11 +2,7 @@
 	import { goto } from "$app/navigation";
 	import { getCode, verify } from "$lib/api/auth";
 	import { client } from "$lib/api/client";
-	import { banner } from "$lib/components/banner";
-	import { button } from "$lib/components/button";
-	import * as card from "$lib/components/card";
-	import { input as formInput } from "$lib/components/input";
-	import { link } from "$lib/components/link";
+	import { banner, button, card, input as formInput, link } from "@pacuare/design";
 	import { m } from "$lib/paraglide/messages";
 	import { PinInput } from "melt/builders";
 	import { fly } from "svelte/transition";
@@ -48,15 +44,15 @@
 		<p {...card.title()}>{m.log_in_long()}</p>
 
 		{#if errorVisible}
-			<div {...banner('danger')()} transition:fly>
+			<div {...banner.banner('danger')()} transition:fly>
 				Failed to sign in with <strong>{email}</strong>; either this account does not exist or the credentials were incorrect.
-				For more information on getting an account, please see the <a {...link()} href="https://pacuare.dev/en/latest/accounts.html">documentation</a>.
+				For more information on getting an account, please see the <a {...link.link()} href="https://pacuare.dev/en/latest/accounts.html">documentation</a>.
 			</div>
 		{/if}
 		
 		<form onsubmit={sendOtp} class="flex flex-row gap-2 justify-stretch">
-			<input {...formInput('block flex-1')} type="email" placeholder={m.email()} bind:value={email} oninput={() => errorVisible = false} disabled={otpSending || otpVisible}>
-			<button {...button('primary')('block')} type="submit" disabled={otpSending || otpVisible}>{m.log_in()}</button>
+			<input {...formInput.input('block flex-1')} type="email" placeholder={m.email()} bind:value={email} oninput={() => errorVisible = false} disabled={otpSending || otpVisible}>
+			<button {...button.button('primary')('block')} type="submit" disabled={otpSending || otpVisible}>{m.log_in()}</button>
 		</form>
 
 		{#if otpVisible}
@@ -64,10 +60,10 @@
 				<p {...card.description('pb-1 pt-3')}>{m.enter_otp()}</p>
 				<div {...otpInput.root} class="flex flex-row items-stretch gap-3">
 					{#each otpInput.inputs as input}
-						<input {...input} {...formInput('flex-1 min-w-2 text-center uppercase')}>
+						<input {...input} {...formInput.input('flex-1 min-w-2 text-center uppercase')}>
 					{/each}
 				</div>
-				<button {...button('primary')()} type="submit">{m.log_in()}</button>
+				<button {...button.button('primary')()} type="submit">{m.log_in()}</button>
 			</form>
 		{/if}
 	</div>

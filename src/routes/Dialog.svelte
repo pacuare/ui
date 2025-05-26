@@ -1,8 +1,7 @@
 <script lang="ts">
     import { scale } from 'svelte/transition';
     import DraggableTitlebar from "./DraggableTitlebar.svelte";
-	import { input } from '$lib/components/input';
-    import * as card from '$lib/components/card';
+	import { card } from "@pacuare/design"
 	import type { Snippet } from 'svelte';
 
     let left = $state(100)

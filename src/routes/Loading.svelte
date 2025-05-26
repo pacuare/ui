@@ -1,9 +1,8 @@
 <script>
-	import { backdrop } from "$lib/components/modal";
-	import { spinner } from "$lib/components/spinner";
+	import { modal, spinner } from "@pacuare/design"
     import { LoaderCircle } from "@lucide/svelte"
 
 </script>
-<div {...backdrop()}>
-    <LoaderCircle {...spinner('size-6')}/>
+<div {...modal.backdrop()}>
+    <LoaderCircle {...spinner.spinner('size-6')}/>
 </div>

@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { client } from '$lib/api/client';
 	import { query, type QueryResponse } from '$lib/api/query';
-	import { button } from '$lib/components/button';
-	import { spinner } from '$lib/components/spinner';
+	import { button, spinner } from '@pacuare/design';
 	import { LoaderCircle, Download } from '@lucide/svelte';
 	import { fade } from 'svelte/transition';
 	import { downloadData } from '$lib/export/download';
@@ -25,7 +24,7 @@
 
 {#if loading}
 	<div class="flex flex-1 h-full items-center justify-center" transition:fade>
-		<div {...spinner()}>
+		<div {...spinner.spinner()}>
 			<LoaderCircle />
 		</div>
 	</div>
@@ -48,7 +47,7 @@
 			{/each}
 		</tbody>
 	</table>
-	<button {...button('primary')('block absolute bottom-5 right-5 border-none')} onclick={downloadResults} title={`Download ${results.values.length} rows`} transition:fade>
+	<button {...button.button('primary')('block absolute bottom-5 right-5 border-none')} onclick={downloadResults} title={`Download ${results.values.length} rows`} transition:fade>
 		<Download class="size-4"/>
 	</button>
 {:else}

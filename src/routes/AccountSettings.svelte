@@ -1,18 +1,13 @@
 <script lang="ts">
-	import { backdrop } from "$lib/components/modal";
-    import * as card from "$lib/components/card";
+	import { modal, card, button, input, banner, spinner } from "@pacuare/design"
 	import { m } from "$lib/paraglide/messages";
-	import { button } from "$lib/components/button";
 	import { LogOut, Plus, Trash } from "@lucide/svelte";
 	import { deleteKey, getKey, getKeys, logOut } from "$lib/api/auth";
 	import { client } from "$lib/api/client";
 	import { goto } from "$app/navigation";
 	import { onMount } from "svelte";
-	import { input } from "$lib/components/input";
-	import { banner } from "$lib/components/banner";
     import * as db from '$lib/api/db'
 	import Dialog from "./Dialog.svelte";
-	import { spinner } from "$lib/components/spinner";
 	import { fade } from "svelte/transition";
 
     let keys: [number, string, string][] = $state([])
@@ -68,8 +63,8 @@
             <h3 {...card.title('text-md')}>{m.personal_db()}</h3>
             <p {...card.description('mb-4')}>{m.personal_db_sync()}</p>
             <div class="flex flex-row gap-2">
-                <button {...button('primary')()} onclick={refresh}>{m.refresh_db()}</button>
-                <button {...button('outline')()} onclick={recreate}>{m.recreate_db()}</button>
+                <button {...button.button('primary')()} onclick={refresh}>{m.refresh_db()}</button>
+                <button {...button.button('outline')()} onclick={recreate}>{m.recreate_db()}</button>
             </div>
         </div>
 
@@ -78,7 +73,7 @@
             <p {...card.description('mb-4')}>{m.access_your_data()}</p>
 
             {#if createdKey}
-                <div {...banner('success')('mb-3')}>
+                <div {...banner.banner('success')('mb-3')}>
                     Your new API key is <code>{createdKey}</code>. Store it somewhere safe &mdash; it won't be shown again.
                 </div>
             {/if}
@@ -89,7 +84,7 @@
                         <p>{key[1]}</p>
                         <div class="flex flex-row gap-2 items-center">
                             <p>{key[2]}</p>
-                            <button {...button('outline')()} onclick={() => deleteClick(key[0])}>
+                            <button {...button.button('outline')()} onclick={() => deleteClick(key[0])}>
                                 <Trash class="size-4"/>
                             </button>
                         </div>
@@ -97,20 +92,20 @@
                 {/each}
 
                 <form onsubmit={addKey} class="flex flex-row gap-2 items-stretch">
-                    <input {...input('block flex-1')} placeholder={m.description()} bind:value={keyDesc}>
-                    <button {...button('primary')()} type="submit">
+                    <input {...input.input('block flex-1')} placeholder={m.description()} bind:value={keyDesc}>
+                    <button {...button.button('primary')()} type="submit">
                         <Plus class="size-4"/>
                     </button>
                 </form>
             </div>
         </div>
 
-        <button {...button('outline')('self-end')} onclick={logoutClick}><LogOut class="size-4"/></button>
+        <button {...button.button('outline')('self-end')} onclick={logoutClick}><LogOut class="size-4"/></button>
     </div>
 </Dialog>
 
 {#if loading}
-<div {...backdrop()} transition:fade>
-    <div {...spinner()}></div>
+<div {...modal.backdrop()} transition:fade>
+    <div {...spinner.spinner()}></div>
 </div>
 {/if}

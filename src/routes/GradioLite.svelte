@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-    <script type="module" crossorigin src="https://cdn.jsdelivr.net/npm/@gradio/lite/dist/lite.js"></script>
+    <script type="module" crossorigin="" src="https://cdn.jsdelivr.net/npm/@gradio/lite/dist/lite.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@gradio/lite/dist/lite.css" />
 </svelte:head>
 
