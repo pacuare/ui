@@ -39,7 +39,7 @@
 	}
 </script>
 
-<div class="m-auto max-w-sm mt-6 px-3">
+<div class="m-auto max-w-md mt-6 px-3">
 	<div {...card.root('flex flex-col items-stretch gap-2')}>
 		<p {...card.title()}>{m.log_in_long()}</p>
 
