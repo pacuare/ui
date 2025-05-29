@@ -1,11 +1,15 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-	import { getCode, verify } from "$lib/api/auth";
+	import { getAccess, getCode, verify } from "$lib/api/auth";
 	import { client } from "$lib/api/client";
 	import { banner, button, card, input as formInput, link } from "@pacuare/design";
 	import { m } from "$lib/paraglide/messages";
 	import { PinInput } from "melt/builders";
 	import { fly } from "svelte/transition";
+
+	getAccess(client)
+		.then(() => goto('/'))
+		.catch(() => {})
 
 	let email = $state('')
 	let otpSending = $state(false)
