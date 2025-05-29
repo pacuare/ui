@@ -5,7 +5,8 @@
 	import AccountSettings from "./AccountSettings.svelte";
 	import { button } from "@pacuare/design";
 	import GradioLite from "./GradioLite.svelte";
-	import QueryDialog from "./(query)/QueryDialog.svelte";
+	import QueryDialog from "./query/QueryDialog.svelte";
+	import Dialog from "./Dialog.svelte";
 
     let settingsOpen = $state(false)
     let queryOpen = $state(false)
@@ -30,5 +31,7 @@
 {/if}
 
 {#if queryOpen}
+<Dialog>
     <QueryDialog bind:query={query}/>
+</Dialog>
 {/if}
