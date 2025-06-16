@@ -6,9 +6,13 @@
 	import { m } from "$lib/paraglide/messages";
 	import { PinInput } from "melt/builders";
 	import { fly } from "svelte/transition";
+	import { page } from "$app/stores";
 
 	getAccess(client)
-		.then(() => goto('/'))
+		.then(() => {
+			if($page.url.searchParams.has('return')) location.assign($page.url.searchParams.get('return')!)
+			else goto('/')
+		})
 		.catch(() => {})
 
 	let email = $state('')
