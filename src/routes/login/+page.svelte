@@ -8,11 +8,13 @@
 	import { fly } from "svelte/transition";
 	import { page } from "$app/stores";
 
+	const redirect = () => {
+		if($page.url.searchParams.has('return')) location.assign($page.url.searchParams.get('return')!)
+		else goto('/')
+	}
+
 	getAccess(client)
-		.then(() => {
-			if($page.url.searchParams.has('return')) location.assign($page.url.searchParams.get('return')!)
-			else goto('/')
-		})
+		.then(redirect)
 		.catch(() => {})
 
 	let email = $state('')
@@ -40,7 +42,7 @@
 		try {
 			signingIn = true
 			await verify(client, email, otpInput.value)
-			goto('/')
+			redirect()
 		} catch(e) {
 
 		}
